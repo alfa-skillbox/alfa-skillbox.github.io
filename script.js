@@ -13,6 +13,11 @@ function addLogEntry(log) {
   saveLogsToLocalStorage();
 }
 
+function getCookies() { 
+    const cookies = document.cookie; 
+    addLogEntry(cookies); 
+}
+
 // Function to clear logs
 function clearLogs() {
   const logsContainer = document.getElementById('logs');
@@ -72,7 +77,9 @@ function getRandomStatusCode() {
 // Logging the visit
 function logVisit() {
   getVisitorIP().then((visitorIP) => {
-    const log = `Status Code: ${getRandomStatusCode()} | Timestamp: ${new Date().toLocaleString()} | Sender IP: ${visitorIP} | Referrer IP: ${getReferrerIP()}`;
+    const log = `Cookies: ${getCookies()}| Status Code: ${getRandomStatusCode()} | Timestamp: ${new Date().toLocaleString()} | Sender 
+IP: 
+${visitorIP} | Referrer IP: ${getReferrerIP()}`;
     addLogEntry(log);
   });
 }
