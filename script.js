@@ -14,8 +14,8 @@ function addLogEntry(log) {
 }
 
 function getCookies() { 
-    const cookies = document.cookie; 
-    addLogEntry(cookies); 
+    var pairs = document.cookie.split(";");
+    return pairs;
 }
 
 // Function to clear logs
